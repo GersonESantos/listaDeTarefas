@@ -1,8 +1,15 @@
-CREATE TABLE cliente (
+CREATE DATABASE bd_tasks;
+USE bd_tasks;
+CREATE TABLE users (
     id INT PRIMARY KEY AUTO_INCREMENT,
-    nome VARCHAR(100) NOT NULL,
-    email VARCHAR(150) NOT NULL UNIQUE,
-    imagem VARCHAR(255),
-    telefone BIGINT,
-    afinidade VARCHAR(20)
+    username VARCHAR(50) NOT NULL,
+    passwrd VARCHAR(100) NOT NULL UNIQUE,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
+DESC users;
+
+INSERT INTO users (username, passwrd)
+VALUES ("Gerson", "12345");
+select * from users;
+

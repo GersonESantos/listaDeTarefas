@@ -15,12 +15,12 @@ db.connect(err => {
   console.log("Banco de dados conectado!");
 });
 
-app.get('/', (req, res) => {
-  res.write('Ola! digite http://localhost:3000/clientes para ver os clientes');
-  res.end()
-});
+// app.get('/', (req, res) => {
+//   res.write('Ola! digite http://localhost:3000/clientes para ver os clientes');
+//   res.end()
+// });
 
-app.get("/clientes", (req, res) => {
+app.get("/", (req, res) => {
   db.query("SELECT * FROM cliente", (err, results) => {
     if (err) throw err;
     res.json(results);

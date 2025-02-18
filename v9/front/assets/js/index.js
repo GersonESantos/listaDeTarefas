@@ -1,26 +1,27 @@
-window.onload =()=>{
-    console.log('Hello World');
+// javascript do index.html
+
+window.onload = () => {
+    
+    get_username(1);
+
 }
-function get_username(id)
-{
-    fetch('http://localhost:3000/user/${id}')
-    .then(response => 
-        {
-        if(response.status === 200)
-        {
+
+function get_username(id){
+
+    fetch(`http://localhost:3000/user/${id}`)
+    .then(response => {
+        if(response.status === 200){
             return response.json();
-            
-        }else
-        {
-            console.log('Failed');
+        } else {
+            console.log('ERRO!');
         }
-        })
-        .then(data => {
-            if(dados.length === 0)
-            {
-                console.log('No data');
-            }else{
-                document.querySelector('#username').textContent = dados[0].username;
-            }
-        })
-};
+    })
+    .then(dados => {
+        if(dados.length === 0){
+            console.log('Erro!');
+        } else {
+            document.querySelector("#username").textContent = dados[0].username;
+        }
+    })
+
+}

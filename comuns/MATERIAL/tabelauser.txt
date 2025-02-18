@@ -13,3 +13,25 @@ INSERT INTO users (username, passwrd)
 VALUES ("Gerson", "12345");
 select * from users;
 
+USE bd_tasks;
+
+CREATE TABLE tasks (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    id_user INT NOT NULL, -- Chave estrangeira para a tabela users
+    task_description TEXT NOT NULL,
+    status ENUM('pendente', 'em progresso', 'concluído') NOT NULL,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (id_user) REFERENCES users(id) ON DELETE CASCADE
+);
+
+DESC tasks;
+
+-- Supondo que Gerson tenha id = 1 na tabela users
+INSERT INTO tasks (id_user, task_description, status)
+VALUES (1, "Pagar conta de água", "em progresso");
+
+SELECT * FROM tasks;
+
+
+

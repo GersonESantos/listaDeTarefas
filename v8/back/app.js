@@ -1,13 +1,13 @@
 const express = require('express');
 const mysql = require("mysql2");
 const app = express();
-
+const cors = require('cors');
 
 const db = mysql.createConnection({
   host: "localhost",
   user: "root",
   password: "Gabibi89*",
-  database: "projeto"
+  database: "bd_tasks"
 });
 
 db.connect(err => {
@@ -15,10 +15,10 @@ db.connect(err => {
   console.log("Banco de dados conectado!");
 });
 
+app.use(cors());
 
-
-app.get("/", (req, res) => {
-  db.query("SELECT * FROM cliente", (err, results) => {
+app.get("/users", (req, res) => {
+  db.query("SELECT *  FROM users id = ?",[req.params.id], (err, results) => {
     if (err) throw err;
     res.json(results);
   });

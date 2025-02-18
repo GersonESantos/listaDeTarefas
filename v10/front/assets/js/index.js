@@ -1,14 +1,14 @@
 // javascript do index.html
-
+let id = 1
 window.onload = () => {
     
-    get_username(1);
-
+    get_username(id);
+    get_user_tasks(id);
 }
 
 function get_username(id){
 
-    fetch(`http://localhost:3000/user/${id}`)
+    fetch(`http://localhost:3000/user/tasks/${id}`)
     .then(response => {
         if(response.status === 200){
             return response.json();

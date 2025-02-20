@@ -55,7 +55,7 @@ function get_user_tasks(id){
                         <div class="col-8">
                             <div class="d-flex align-items-center">
                                 <h5 class="me-3 text-info"><i class="fa-solid fa-circle-chevron-right"></i></h5>
-                                <h5>${tarefa.task_text}</h5>
+                                <h5>${tarefa.task_descrition}</h5>
                             </div>
                         </div>
                         <div class="col-2">

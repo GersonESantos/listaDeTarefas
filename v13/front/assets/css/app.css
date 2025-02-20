@@ -1,0 +1,8 @@
+.edit_link {
+    cursor: pointer;
+    color: #5bc;
+    text-decoration: none;
+}
+.edit_link :hover {
+    color: #0056b3;
+}

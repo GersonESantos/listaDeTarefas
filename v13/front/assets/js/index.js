@@ -58,15 +58,17 @@ function get_user_tasks(id){
                                 <h5>${tarefa.task_description}</h5>
                             </div>
                         </div>
+                    
                         <div class="col-2">
                             <select id="task_status" class="form-select p-2">
                                 <option value="new">New</option>
-                                <option value="in progress">In progress</option>
-                                <option value="canceled">Canceled</option>
-                                <option value="done">Done</option>
+                                <option value="em progresso" ${tarefa.status == 'em progresso' ? 'selected' : ''}>em progresso</option>
+                                <option value="pendente"     ${tarefa.status == 'pendente' ? 'selected' : ''}>pendente</option>
+                                <option value="concluído"    ${tarefa.status == 'concluído' ? 'selected' : ''}>concluído</option>
                             </select>
                         </div>
-                        <div class="col-1 text-end"><i class="fa-regular fa-pen-to-square me-2"></i>Edit</div>
+                        <div class="col-1 text-end"><spam class="edit_link"><i class="fa-regular fa-pen-to-square me-2"></i>Edit</spam></div>
+                        
                         <div class="col-1 text-end text-danger"><i class="fa-regular fa-trash-can me-2"></i>Delete</div>
                     </div>
                 </div>`;

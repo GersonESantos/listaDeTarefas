@@ -1,0 +1,8 @@
+/* o meu css */
+.edit_link {
+    cursor: pointer;
+}
+
+.edit_link:hover {
+    color: #5BC0DE;
+}

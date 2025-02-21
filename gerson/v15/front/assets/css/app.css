@@ -6,3 +6,11 @@
 .edit_link :hover {
     color: #0056b3;
 }
+.delete_link {
+    cursor: pointer;
+    color: rgb(255, 117, 117);
+}
+
+.delete_link:hover {
+    color: rgb(255, 172, 39);
+}

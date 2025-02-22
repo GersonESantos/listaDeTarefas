@@ -15,13 +15,13 @@ app.get("/", (req, res) => {
         if (err) {
             res.send('MySQL connection error.');
         }
-        res.send('users' + results[0].users);
+        res.send('numero de users: ' + results[0].users);
     })
 });
 
 
 
 
-app.listen(8080, () => {
-    console.log('Rodando app listening at http://localhost:8080');
+app.listen(3000, () => {
+    console.log('Rodando app listening at http://localhost:3000');
   });

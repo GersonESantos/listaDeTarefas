@@ -32,7 +32,10 @@ No backend vamos ter uma API NodeJS + Express + MySQL para servir o frontend.
         - páginas necessárias para a navegação na nossa app.
         - pequenos testes de comunicação entre front e backend - utilização de Ajax (XMLhttprequest | fetch API)
 
-
+    > no backend
+       - criar o servidor NodeJS + express + sql + nodemon
+       - instar npm init npm i express sql2 nodemon 
+       - Criar um endpoint inicial e testar comunicação
     
     
     - estrutura base de cada página

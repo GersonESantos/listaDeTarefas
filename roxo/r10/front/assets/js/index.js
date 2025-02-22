@@ -3,7 +3,6 @@ let id = 1
 window.onload = () => {
     
     get_username(id);
-    get_user_tasks(id);
 }
 
 // ---------------------------------------------------

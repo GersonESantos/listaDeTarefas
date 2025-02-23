@@ -3,7 +3,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     margin: 0;
     background-color: #f0f0f0;
 }
@@ -13,7 +13,8 @@ body {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 300px;
+    width: 400px;
+    margin: 20px 0;
 }
 
 h2 {
@@ -21,18 +22,34 @@ h2 {
     margin-bottom: 20px;
 }
 
-.user-data {
+.user-data, .tasks-list {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
     background-color: #f9f9f9;
+    margin-bottom: 20px;
 }
 
-.user-data p {
+.user-data p, .tasks-list p {
     margin: 10px 0;
 }
 
 .user-data span {
     font-weight: normal;
     color: #333;
+}
+
+.tasks-list .task-item {
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+}
+
+.tasks-list .task-item:last-child {
+    border-bottom: none;
+}
+
+.tasks-list .task-item span {
+    display: block;
+    font-size: 0.9em;
+    color: #555;
 }

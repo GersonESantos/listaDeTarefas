@@ -2,9 +2,58 @@ CREATE TABLE users (
     id INT PRIMARY KEY AUTO_INCREMENT,
     username VARCHAR(50) NOT NULL,
     passwrd VARCHAR(100) NOT NULL UNIQUE,
+    email VARCHAR(100) NOT NULL UNIQUE,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
     updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
+
+## Tabela `users`
+
+A tabela `users` armazena informações básicas dos usuários do sistema. Abaixo está a descrição de cada campo:
+
+- **`id`**  
+  - **Tipo**: `INT`  
+  - **Descrição**: Chave primária da tabela, gerada automaticamente com autoincremento para identificar cada usuário de forma única.  
+  - **Restrições**: `PRIMARY KEY AUTO_INCREMENT`
+
+- **`username`**  
+  - **Tipo**: `VARCHAR(50)`  
+  - **Descrição**: Nome de usuário, com até 50 caracteres, usado para identificação no sistema.  
+  - **Restrições**: `NOT NULL` (obrigatório)
+
+- **`passwrd`**  
+  - **Tipo**: `VARCHAR(100)`  
+  - **Descrição**: Senha do usuário, com até 100 caracteres, armazenada de forma única (não pode haver duplicatas).  
+  - **Restrições**: `NOT NULL UNIQUE` (obrigatório e único)
+
+- **`email`**  
+  - **Tipo**: `VARCHAR(100)`  
+  - **Descrição**: Endereço de email do usuário, com até 100 caracteres, usado para contato ou autenticação.  
+  - **Restrições**: `NOT NULL UNIQUE` (obrigatório e único)
+
+- **`created_at`**  
+  - **Tipo**: `DATETIME`  
+  - **Descrição**: Data e hora em que o usuário foi criado, preenchida automaticamente com o momento da inserção.  
+  - **Restrições**: `DEFAULT CURRENT_TIMESTAMP`
+
+- **`updated_at`**  
+  - **Tipo**: `DATETIME`  
+  - **Descrição**: Data e hora da última atualização do registro, atualizada automaticamente sempre que o usuário é modificado.  
+  - **Restrições**: `DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP`
+
+### Estrutura Completa
+```sql
+CREATE TABLE users (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    username VARCHAR(50) NOT NULL,
+    passwrd VARCHAR(100) NOT NULL UNIQUE,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+
+
 CREATE TABLE tasks (
     id INT PRIMARY KEY AUTO_INCREMENT,
     id_user INT NOT NULL, -- Chave estrangeira para a tabela users

@@ -17,7 +17,7 @@ app.get("/", (req, res) => {
         if (err) {
             res.send('MySQL connection error.');
         }
-        res.send('MySQL conectou OK. digite http://localhost:3000/user/1');
+        res.send('MySQL connection OK.');
     })
 });
 

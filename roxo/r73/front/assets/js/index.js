@@ -24,6 +24,7 @@ function getUserData(id) {
             document.querySelector("#id").textContent = dados[0].id;
             document.querySelector("#username").textContent = dados[0].username;
             document.querySelector("#passwrd").textContent = dados[0].passwrd;
+            document.querySelector("#email").textContent = dados[0].email; // Novo campo
             document.querySelector("#created_at").textContent = new Date(dados[0].created_at).toLocaleString();
             document.querySelector("#updated_at").textContent = new Date(dados[0].updated_at).toLocaleString();
         }
@@ -37,9 +38,8 @@ function getUserData(id) {
 // Função para buscar as tarefas do usuário
 function getUserTasks(id) {
     fetch(`http://localhost:3000/user/${id}/tasks`)
-    
     .then(response => {
-        if (!response.ok) { // Verifica se a resposta não é 200-299
+        if (!response.ok) {
             console.log(`Erro ${response.status} ao buscar tarefas!`);
             throw new Error(`Status: ${response.status}`);
         }
@@ -50,7 +50,7 @@ function getUserTasks(id) {
         if (!tasks || tasks.length === 0) {
             tasksList.innerHTML = "<p>Nenhuma tarefa encontrada para este usuário.</p>";
         } else {
-            tasksList.innerHTML = ""; // Limpa o "Carregando..."
+            tasksList.innerHTML = "";
             tasks.forEach(task => {
                 const taskItem = document.createElement("div");
                 taskItem.classList.add("task-item");

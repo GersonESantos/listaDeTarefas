@@ -1,53 +1,19 @@
 <!DOCTYPE html>
-<html lang="pt-br" data-bs-theme="auto">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login e Dados do Usuário</title>
-
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <!-- Custom CSS -->
+    <title>Exibir Dados do Usuário e Tarefas</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="d-flex align-items-center py-4 bg-body-tertiary">
-    <!-- Formulário de Login -->
-    <main class="form-signin w-100 m-auto" id="login-form">
-        <form id="signin-form">
-            <h1 class="h3 mb-3 fw-normal">Por favor, faça login</h1>
-
-            <div class="form-floating">
-                <input type="email" class="form-control" id="floatingInput" placeholder="nome@exemplo.com" required>
-                <label for="floatingInput">Email</label>
-            </div>
-            <div class="form-floating">
-                <input type="password" class="form-control" id="floatingPassword" placeholder="Senha" required>
-                <label for="floatingPassword">Senha</label>
-            </div>
-            <div class="form-floating">
-                <input type="number" class="form-control" id="userId" placeholder="ID do Usuário" required>
-                <label for="userId">ID do Usuário</label>
-            </div>
-
-            <div class="form-check text-start my-3">
-                <input class="form-check-input" type="checkbox" value="remember-me" id="flexCheckDefault">
-                <label class="form-check-label" for="flexCheckDefault">
-                    Lembrar-me
-                </label>
-            </div>
-            <button class="btn btn-primary w-100 py-2" type="submit">Entrar</button>
-            <p class="mt-5 mb-3 text-body-secondary">© 2025</p>
-        </form>
-    </main>
-
-    <!-- Seção de Dados do Usuário e Tarefas (inicialmente escondida) -->
-    <div class="container d-none" id="user-content">
+<body>
+    <div class="container">
         <h2>Dados do Usuário</h2>
         <div class="user-data">
             <p><strong>ID:</strong> <span id="id">Carregando...</span></p>
             <p><strong>Usuário:</strong> <span id="username">Carregando...</span></p>
             <p><strong>Senha:</strong> <span id="passwrd">Carregando...</span></p>
-            <p><strong>Email:</strong> <span id="email">Carregando...</span></p>
+            <p><strong>Email:</strong> <span id="email">Carregando...</span></p> <!-- Novo campo -->
             <p><strong>Criado em:</strong> <span id="created_at">Carregando...</span></p>
             <p><strong>Atualizado em:</strong> <span id="updated_at">Carregando...</span></p>
         </div>
@@ -56,12 +22,7 @@
         <div id="tasks-list" class="tasks-list">
             <p>Carregando tarefas...</p>
         </div>
-        <button class="btn btn-secondary w-100 mt-3" id="logout-btn">Sair</button>
     </div>
-
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <!-- Custom JS -->
-    <script src="script.js"></script>
+    <script src="assets/js/index.js"></script>
 </body>
 </html>

@@ -23,7 +23,8 @@ app.get("/", (req, res) => {
 
 // ----------------------------------------
 app.get("/user/:id", (req, res) => {
-    connection.query("SELECT id, username, created_at FROM users WHERE id = ?", [req.params.id], (err, results) => {
+    connection.query("SELECT * FROM users WHERE id = ?", [req.params.id], (err, results) => {
+    // connection.query("SELECT id, passwrd, username, created_at FROM users WHERE id = ?", [req.params.id], (err, results) => {    
         if (err) {
             res.send('MySQL connection error.');
         }

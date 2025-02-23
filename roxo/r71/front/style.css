@@ -21,10 +21,18 @@ h2 {
     margin-bottom: 20px;
 }
 
-#username {
-    text-align: center;
+.user-data {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
     background-color: #f9f9f9;
+}
+
+.user-data p {
+    margin: 10px 0;
+}
+
+.user-data span {
+    font-weight: normal;
+    color: #333;
 }

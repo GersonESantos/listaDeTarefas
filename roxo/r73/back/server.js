@@ -11,9 +11,7 @@ const connection = mysql.createConnection({
 });
 
 const app = new express();
-app.listen(3000, () => {
-    console.log('Servidor iniciado.');
-})
+
 
 app.use(cors());
 
@@ -47,3 +45,6 @@ app.get("/user/:id/tasks/", (req, res) => {
         res.json(results);
     })
 });
+app.listen(3000, () => {
+    console.log('🚀Rodando app listening at http://localhost:3000');
+  });

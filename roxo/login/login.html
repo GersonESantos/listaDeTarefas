@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="assets/fontawesome/all.min.css"> <!-- Font Awesome -->
+</head>
+<body>
+    <div class="container">
+        <h2>Dados do Usuário</h2>
+        <div class="user-data">
+            <p><strong>ID:</strong> <span id="id">Carregando...</span></p>
+            <p><strong>Usuário:</strong> <span id="username">Carregando...</span></p>
+            <p><strong>Senha:</strong> <span id="passwrd">Carregando...</span></p>
+            <p><strong>Email:</strong> <span id="email">Carregando...</span></p> <!-- Novo campo -->
+            <p><strong>Criado em:</strong> <span id="created_at">Carregando...</span></p>
+            <p><strong>Atualizado em:</strong> <span id="updated_at">Carregando...</span></p>
+        </div>
+
+        <h2>Tarefas do Usuário</h2>
+        <div id="tasks-list" class="tasks-list">
+            <p>Carregando tarefas...</p>
+        </div>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form id="login-form">
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group password-group">
+                <label for="password">Senha:</label>
+                <input type="password" id="password" name="password" required>
+                <i class="fa-solid fa-eye-slash toggle-password"></i>
+            </div>
+            <button type="submit">Entrar</button>
+        </form>
+        <p id="message"></p>
+        <p id="user-name" class="user-name"></p> <!-- Novo campo para o nome -->
+    </div>
+    <script src="script.js"></script>
+    <script src="assets/js/index.js"></script>
+</body>
+</html>

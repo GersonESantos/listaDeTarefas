@@ -63,4 +63,25 @@ No backend vamos ter uma API NodeJS + Express + MySQL para servir o frontend.
         botão para submeter alteração
 
     (eliminar será feito com uma modal)
+
+    meu-projeto/
+├── client/                 # Tudo relacionado ao front-end
+│   ├── assets/            # Arquivos estáticos (imagens, fontes, etc.)
+│   │   ├── fontawesome/   # Biblioteca Font Awesome
+│   │   │   └── all.min.css
+│   │   └── img/           # (Opcional) Imagens, se precisar
+│   ├── css/              # Estilos CSS
+│   │   └── style.css
+│   ├── js/               # Scripts JavaScript
+│   │   ├── index.js      # Para o projeto original (usuários e tarefas)
+│   │   └── script.js     # Para o programa de login
+│   ├── login.html        # Página de login
+│   └── index.html        # Página de exibição de usuários e tarefas
+├── server/                # Tudo relacionado ao back-end
+│   ├── server.js         # Arquivo principal do servidor
+│   └── package.json      # Dependências do Node.js (express, mysql2, cors)
+├── db/                   # (Opcional) Scripts SQL ou configurações do banco
+│   ├── create_tables.sql # Criação das tabelas (users, tasks)
+│   └── seed_data.sql     # Dados iniciais de teste
+└── README.md             # Documentação do projeto
  

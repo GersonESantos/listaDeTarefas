@@ -45,6 +45,18 @@ app.get("/user/:id/tasks/", (req, res) => {
         res.json(results);
     })
 });
+// Nova rota para login por email
+app.get("/login", (req, res) => {
+    const email = req.query.email;
+    connection.query("SELECT * FROM users WHERE email = ?", [email], (err, results) => {
+        if (err) {
+            res.status(500).send('MySQL connection error.');
+        } else {
+            res.json(results);
+        }
+    });
+});
+
 app.listen(3000, () => {
     console.log('🚀Rodando app listening at http://localhost:3000');
   });

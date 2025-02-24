@@ -47,9 +47,27 @@ function get_user_tasks(id){
         } else {
             
             document.querySelector("#tasks_container").innerHTML = null;
-
+            let colors = [
+                {
+                    status: 'new',
+                    select_bg_color: 'bg-write'
+                },
+                {
+                    status: 'em progresso',
+                    select_bg_color: 'bg-info'
+                },
+                {
+                    status: 'pendente',
+                    select_bg_color: 'bg-danger'
+                },
+                {
+                    status: 'concluído',
+                    select_bg_color: 'bg-success'
+                },
+            ];
             tarefas.forEach(tarefa => {
-
+                let color = colors.find(item => item.status === tarefa.status);
+                console.log(color);
                 let html = `
                 <div class="col-12 border border-secondary rounded p-3 shadow">
                     <div class="row align-items-center">
@@ -61,7 +79,7 @@ function get_user_tasks(id){
                         </div>
                     
                         <div class="col-2">
-                            <select id="task_status" class="form-select p-2">
+                            <select id="task_status" class="form-select p-2" >
                                 <option value="new"${tarefa.status == 'new' ? 'select' : ''}>new</option>
                                 <option value="em progresso" ${tarefa.status == 'em progresso' ? 'selected' : ''}>em progresso</option>
                                 <option value="pendente"     ${tarefa.status == 'pendente' ? 'selected' : ''}>pendente</option>
@@ -69,7 +87,7 @@ function get_user_tasks(id){
                             </select>
                         </div>
                         <div class="col-1 text-end"><span class="edit_link" data-id-task="${tarefa.id}"><i class="fa-regular fa-pen-to-square me-2"></i>Edit</span></div>
-                        <div class="col-1 text-end text-danger"><i class="fa-regular fa-trash-can me-2"></i>Delete</div>    
+                        <div class="col-1 text-end "><span class="delete_link" data-id-task="${tarefa.id}"><i class="fa-regular fa-trash-can me-2"></i>Delete</span></div>    
                        </div>
                 </div>`;
 

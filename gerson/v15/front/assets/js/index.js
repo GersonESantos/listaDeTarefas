@@ -79,7 +79,7 @@ function get_user_tasks(id){
                         </div>
                     
                         <div class="col-2">
-                            <select id="task_status" class="form-select p-2" >
+                            <select id="task_status" class="form-select p-2 ${color.select_bg_color}" >
                                 <option value="new"${tarefa.status == 'new' ? 'select' : ''}>new</option>
                                 <option value="em progresso" ${tarefa.status == 'em progresso' ? 'selected' : ''}>em progresso</option>
                                 <option value="pendente"     ${tarefa.status == 'pendente' ? 'selected' : ''}>pendente</option>

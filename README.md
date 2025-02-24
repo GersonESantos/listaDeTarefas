@@ -65,6 +65,8 @@ No backend vamos ter uma API NodeJS + Express + MySQL para servir o frontend.
     (eliminar será feito com uma modal)
 
     meu-projeto/
+
+    
 ├── client/                 # Tudo relacionado ao front-end
 │   ├── assets/            # Arquivos estáticos (imagens, fontes, etc.)
 │   │   ├── fontawesome/   # Biblioteca Font Awesome
@@ -85,3 +87,31 @@ No backend vamos ter uma API NodeJS + Express + MySQL para servir o frontend.
 │   └── seed_data.sql     # Dados iniciais de teste
 └── README.md             # Documentação do projeto
  
+## Explicação da Estrutura
+
+A estrutura de pastas deste projeto foi projetada para manter o código organizado, separar responsabilidades entre front-end e back-end, e facilitar a escalabilidade. Veja a descrição de cada pasta:
+
+- **`client/`**  
+  Contém todos os arquivos relacionados ao front-end (interface do usuário).  
+  - **`assets/`**: Armazena recursos estáticos, como bibliotecas externas e imagens.  
+    - **`fontawesome/`**: Contém o arquivo `all.min.css` do Font Awesome para ícones.  
+    - **`img/`**: (Opcional) Pasta para imagens, se necessário.  
+  - **`css/`**: Arquivos de estilo, como `style.css`, usados para estilizar as páginas.  
+  - **`js/`**: Scripts JavaScript, separados por funcionalidade.  
+    - **`index.js`**: Lógica para exibir dados de usuários e tarefas.  
+    - **`script.js`**: Lógica do formulário de login.  
+  - **`login.html`**: Página de login do sistema.  
+  - **`index.html`**: Página para exibir dados do usuário e suas tarefas.
+
+- **`server/`**  
+  Contém o código do back-end (servidor Node.js).  
+  - **`server.js`**: Arquivo principal do servidor Express com as rotas da API (`/login`, `/user/:id`, `/user/:id/tasks/`).  
+  - **`package.json`**: Lista as dependências do projeto (ex.: `express`, `mysql2`, `cors`) e scripts para execução.
+
+- **`db/`** (Opcional)  
+  Scripts relacionados ao banco de dados MySQL.  
+  - **`create_tables.sql`**: Contém os comandos `CREATE TABLE` para criar as tabelas `users` e `tasks`.  
+  - **`seed_data.sql`**: Dados iniciais de teste (ex.: usuários e tarefas de exemplo).
+
+- **`README.md`**  
+  Arquivo na raiz do projeto com instruções de configuração, instalação e uso.

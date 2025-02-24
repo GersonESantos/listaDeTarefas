@@ -10,6 +10,7 @@ No backend vamos ter uma API NodeJS + Express + MySQL para servir o frontend.
     users
         id
         username
+        email
         passwrd
         created_at
         updated_at

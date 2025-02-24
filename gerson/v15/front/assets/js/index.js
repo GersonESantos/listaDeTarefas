@@ -47,28 +47,7 @@ function get_user_tasks(id){
         } else {
             
             document.querySelector("#tasks_container").innerHTML = null;
-            let colors = [
-                {
-                    task_status: 'new',
-                    select_bg_color: 'bg-white'
 
-                },
-                {
-                    task_status: 'in progress',
-                    select_bg_color: 'bg-info'
-
-                },
-                {
-                    task_status: 'canceled',
-                    select_bg_color: 'bg-danger'
-
-                },
-                {
-                    task_status: 'done',
-                    select_bg_color: 'bg-success'
-
-                },
-            ];
             tarefas.forEach(tarefa => {
 
                 let html = `
@@ -83,15 +62,15 @@ function get_user_tasks(id){
                     
                         <div class="col-2">
                             <select id="task_status" class="form-select p-2">
-                                <option value="new">New</option>
+                                <option value="new"${tarefa.status == 'new' ? 'select' : ''}>new</option>
                                 <option value="em progresso" ${tarefa.status == 'em progresso' ? 'selected' : ''}>em progresso</option>
                                 <option value="pendente"     ${tarefa.status == 'pendente' ? 'selected' : ''}>pendente</option>
                                 <option value="concluído"    ${tarefa.status == 'concluído' ? 'selected' : ''}>concluído</option>
                             </select>
                         </div>
                         <div class="col-1 text-end"><span class="edit_link" data-id-task="${tarefa.id}"><i class="fa-regular fa-pen-to-square me-2"></i>Edit</span></div>
-                        <div class="col-1 text-end"><span class="delete_link" data-id-task="${tarefa.id}"><i class="fa-regular fa-trash-can me-2"></i>Delete</span></div>    
-                        </div>
+                        <div class="col-1 text-end text-danger"><i class="fa-regular fa-trash-can me-2"></i>Delete</div>    
+                       </div>
                 </div>`;
 
                 let new_task = document.createElement('div');

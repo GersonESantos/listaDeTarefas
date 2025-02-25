@@ -79,15 +79,15 @@ function get_user_tasks(id){
                         </div>
                     
                         <div class="col-2">
-                            <select id="task_status" class="form-select p-2 ${color.select_bg_color}" >
+                            <select id="task_status_${tarefa.id}" class="form-select p-2 ${color.select_bg_color}" >
                                 <option value="new"${tarefa.status == 'new' ? 'select' : ''}>new</option>
                                 <option value="em progresso" ${tarefa.status == 'em progresso' ? 'selected' : ''}>em progresso</option>
                                 <option value="pendente"     ${tarefa.status == 'pendente' ? 'selected' : ''}>pendente</option>
                                 <option value="concluído"    ${tarefa.status == 'concluído' ? 'selected' : ''}>concluído</option>
                             </select>
                         </div>
-                        <div class="col-1 text-end"><span class="edit_link" data-id-task="${tarefa.id}"><i class="fa-regular fa-pen-to-square me-2"></i>Edit</span></div>
-                        <div class="col-1 text-end "><span class="delete_link" data-id-task="${tarefa.id}"><i class="fa-regular fa-trash-can me-2"></i>Delete</span></div>    
+                        <div class="col-1 text-end"><span class="edit_link" onClik="edit_task(${tarefa.id})"><i class="fa-regular fa-pen-to-square me-2"></i>Edit</span></div>
+                        <div class="col-1 text-end "><span class="delete_link" onClik="delete_task(${tarefa.id})"><i class="fa-regular fa-trash-can me-2"></i>Delete</span></div>    
                        </div>
                 </div>`;
 

@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explicação Detalhada dos Códigos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #34495e;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 5px;
+            margin-top: 40px;
+        }
+        h3 {
+            color: #7f8c8d;
+            margin-top: 20px;
+        }
+        p {
+            color: #555;
+            margin-bottom: 15px;
+        }
+        code {
+            background-color: #ecf0f1;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', Courier, monospace;
+            color: #e74c3c;
+        }
+        pre {
+            background-color: #ecf0f1;
+            padding: 15px;
+            border-radius: 6px;
+            overflow-x: auto;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+        ul, ol {
+            margin-bottom: 20px;
+            padding-left: 25px;
+        }
+        li {
+            color: #555;
+            margin-bottom: 10px;
+        }
+        .example {
+            background-color: #f9f9f9;
+            border-left: 4px solid #3498db;
+            padding: 10px 15px;
+            margin-bottom: 20px;
+            font-style: italic;
+            color: #7f8c8d;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Explicação Detalhada dos Códigos</h1>
+        <p>Boa noite! Vamos mergulhar fundo nos três arquivos que criei: <code>index.html</code>, <code>styles.css</code> e <code>script.js</code>. Esses arquivos trabalham juntos para criar uma tela simples que pede o email do usuário, faz uma requisição ao servidor para buscar o nome associado a esse email, e exibe o resultado na página. Vou explicar cada um detalhadamente, linha por linha onde necessário, para que você entenda cada pedacinho do que está acontecendo. Vamos lá?</p>
+
+        <h2>1. <code>index.html</code> - A Estrutura da Página</h2>
+        <p>O <code>index.html</code> é o esqueleto da nossa aplicação. Ele define o que aparece na tela e como os elementos são organizados. Pense nele como o "corpo" da página, que o CSS vai estilizar e o JS vai dar vida.</p>
+
+        <h3>Código Completo:</h3>
+        <pre><code><!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar Usuário por Email</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Buscar Usuário</h2>
+        <form id="email-form">
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <button type="submit">Buscar</button>
+        </form>
+        <p id="message"></p>
+        <p id="user-name"></p>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html></code></pre>
+
+        <h3>Explicação Linha por Linha:</h3>
+        <ul>
+            <li><strong><code><!DOCTYPE html></code>:</strong> Diz ao navegador que esse é um documento HTML5, a versão mais recente do HTML. Sem isso, o navegador pode interpretar o código de forma errada.</li>
+            <li><strong><code><html lang="pt-br"></code>:</strong> Abre a tag principal do HTML e define o idioma como português brasileiro. Isso ajuda em acessibilidade e motores de busca.</li>
+            <li><strong><code><head></code>:</strong> Contém informações sobre a página que não aparecem diretamente na tela:
+                <ul>
+                    <li><code><meta charset="UTF-8"></code>: Define a codificação de caracteres como UTF-8, permitindo letras como "ç" e "ã". Sem isso, textos podem aparecer quebrados.</li>
+                    <li><code><meta name="viewport" content="width=device-width, initial-scale=1.0"></code>: Faz a página se ajustar ao tamanho da tela, essencial para celulares e tablets.</li>
+                    <li><code><title>Buscar Usuário por Email</title></code>: Coloca "Buscar Usuário por Email" na aba do navegador.</li>
+                    <li><code><link rel="stylesheet" href="styles.css"></code>: Conecta o arquivo <code>styles.css</code> para dar estilo à página. O <code>href</code> assume que o CSS está na mesma pasta.</li>
+                </ul>
+            </li>
+            <li><strong><code><body></code>:</strong> Aqui é onde o conteúdo visível vive:
+                <ul>
+                    <li><code><div class="container"></code>: Uma "caixa" que agrupa tudo. A classe <code>container</code> será estilizada no CSS para centralizar e formatar o conteúdo.</li>
+                    <li><code><h2>Buscar Usuário</h2></code>: Um título de nível 2, que aparece como um cabeçalho na tela.</li>
+                    <li><code><form id="email-form"></code>: Um formulário com o ID <code>email-form</code>. O JS vai "ouvir" esse ID para capturar o email:
+                        <ul>
+                            <li><code><div class="form-group"></code>: Agrupa o rótulo e o campo de entrada para melhor organização e estilização.</li>
+                            <li><code><label for="email">Email:</label></code>: Um texto "Email:" que fica acima do campo. O <code>for="email"</code> associa o rótulo ao campo com ID <code>email</code>, melhorando a acessibilidade.</li>
+                            <li><code><input type="email" id="email" name="email" required></code>: O campo onde o usuário digita o email. <code>type="email"</code> valida se o texto parece um email (ex.: tem "@"). <code>required</code> impede o envio se estiver vazio.</li>
+                            <li><code><button type="submit">Buscar</button></code>: Um botão que, ao ser clicado, "envia" o formulário. O <code>type="submit"</code> é o que dispara o evento que o JS vai capturar.</li>
+                        </ul>
+                    </li>
+                    <li><code><p id="message"></p></code>: Um parágrafo vazio com ID <code>message</code>. O JS vai preenchê-lo com mensagens como "Usuário encontrado!" ou "Email não encontrado."</li>
+                    <li><code><p id="user-name"></p></code>: Outro parágrafo vazio, com ID <code>user-name</code>, onde o nome do usuário será exibido.</li>
+                </ul>
+            </li>
+            <li><strong><code><script src="script.js"></script></code>:</strong> Inclui o arquivo <code>script.js</code> no final do <code>body</code>. Colocá-lo aqui garante que o HTML carregue antes do JS tentar mexer nele.</li>
+        </ul>
+
+        <p class="example"><strong>Exemplo visual:</strong> Antes do CSS, isso seria apenas texto bruto alinhado à esquerda. Depois do CSS, você verá um formulário centralizado com um título, um campo de email e um botão verde.</p>
+        <p><strong>Resumo:</strong> O <code>index.html</code> monta a base da página: um formulário para o email e espaços para resultados. Ele depende do CSS para ficar bonito e do JS para funcionar.</p>
+
+        <h2>2. <code>styles.css</code> - O Estilo da Página</h2>
+        <p>O <code>styles.css</code> é como o "maquiador" da página. Ele pega a estrutura do HTML e define cores, tamanhos, posições e outros detalhes visuais.</p>
+
+        <h3>Código Completo:</h3>
+        <pre><code>body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+h2 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+#message {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+#user-name {
+    margin-top: 15px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}</code></pre>
+
+        <h3>Explicação Detalhada:</h3>
+        <ul>
+            <li><strong><code>body</code>:</strong> Define o estilo global da página:
+                <ul>
+                    <li><code>font-family: Arial, sans-serif</code>: Usa a fonte Arial (ou uma similar se Arial não estiver disponível).</li>
+                    <li><code>background-color: #f4f4f4</code>: Fundo cinza claro para a página toda.</li>
+                    <li><code>display: flex; justify-content: center; align-items: center</code>: Centraliza o conteúdo horizontalmente e verticalmente usando Flexbox.</li>
+                    <li><code>height: 100vh</code>: Faz o corpo ocupar 100% da altura da tela.</li>
+                    <li><code>margin: 0</code>: Remove margens padrão do navegador.</li>
+                </ul>
+            </li>
+            <li><strong><code>.container</code>:</strong> Estiliza o <code><div class="container"></code>:
+                <ul>
+                    <li><code>background-color: #fff</code>: Fundo branco para destacar o conteúdo.</li>
+                    <li><code>padding: 20px</code>: Espaço interno de 20 pixels em todos os lados.</li>
+                    <li><code>border-radius: 8px</code>: Cantos arredondados para um visual suave.</li>
+                    <li><code>box-shadow: 0 0 10px rgba(0, 0, 0, 0.1)</code>: Sombra sutil para dar profundidade.</li>
+                    <li><code>width: 100%; max-width: 400px</code>: Largura total até o limite de 400px.</li>
+                    <li><code>text-align: center</code>: Centraliza o texto dentro da caixa.</li>
+                </ul>
+            </li>
+            <li><strong><code>h2</code>:</strong> Estiliza o título "Buscar Usuário":
+                <ul>
+                    <li><code>color: #333</code>: Cor cinza escura.</li>
+                    <li><code>margin-bottom: 20px</code>: Espaço de 20px abaixo.</li>
+                </ul>
+            </li>
+            <li><strong><code>.form-group</code>:</strong> Agrupa rótulo e campo:
+                <ul>
+                    <li><code>margin-bottom: 15px</code>: Espaço abaixo de 15px.</li>
+                </ul>
+            </li>
+            <li><strong><code>.form-group label</code>:</strong> Estiliza o "Email:":
+                <ul>
+                    <li><code>display: block</code>: Faz o rótulo ocupar uma linha inteira.</li>
+                    <li><code>margin-bottom: 5px</code>: Espaço de 5px abaixo.</li>
+                    <li><code>color: #555</code>: Cinza médio.</li>
+                </ul>
+            </li>
+            <li><strong><code>.form-group input</code>:</strong> Estiliza o campo de email:
+                <ul>
+                    <li><code>width: 100%</code>: Ocupa toda a largura disponível.</li>
+                    <li><code>padding: 8px</code>: Espaço interno de 8px.</li>
+                    <li><code>border: 1px solid #ddd</code>: Borda fina e clara.</li>
+                    <li><code>border-radius: 4px</code>: Cantos arredondados.</li>
+                    <li><code>box-sizing: border-box</code>: Inclui borda e preenchimento na largura total.</li>
+                </ul>
+            </li>
+            <li><strong><code>button</code>:</strong> Estiliza o botão "Buscar":
+                <ul>
+                    <li><code>width: 100%</code>: Largura total.</li>
+                    <li><code>padding: 10px</code>: Espaço interno.</li>
+                    <li><code>background-color: #28a745</code>: Verde padrão.</li>
+                    <li><code>color: #fff</code>: Texto branco.</li>
+                    <li><code>border: none</code>: Sem borda visível.</li>
+                    <li><code>border-radius: 4px</code>: Cantos arredondados.</li>
+                    <li><code>cursor: pointer</code>: Mostra uma "mãozinha" ao passar o mouse.</li>
+                    <li><code>font-size: 16px</code>: Tamanho da fonte.</li>
+                </ul>
+            </li>
+            <li><strong><code>button:hover</code>:</strong> Efeito ao passar o mouse:
+                <ul>
+                    <li><code>background-color: #218838</code>: Verde mais escuro.</li>
+                </ul>
+            </li>
+            <li><strong><code>#message</code>:</strong> Estiliza o parágrafo de mensagens:
+                <ul>
+                    <li><code>margin-top: 15px</code>: Espaço acima.</li>
+                    <li><code>font-size: 14px</code>: Tamanho menor para mensagens.</li>
+                </ul>
+            </li>
+            <li><strong><code>#user-name</code>:</strong> Estiliza o parágrafo do nome:
+                <ul>
+                    <li><code>margin-top: 15px</code>: Espaço acima.</li>
+                    <li><code>font-size: 16px</code>: Tamanho maior.</li>
+                    <li><code>font-weight: bold</code>: Texto em negrito.</li>
+                    <li><code>color: #333</code>: Cinza escuro.</li>
+                </ul>
+            </li>
+        </ul>
+
+        <p class="example"><strong>Exemplo visual:</strong> O botão começa verde claro (<code>#28a745</code>) e fica mais escuro (<code>#218838</code>) ao passar o mouse. O campo de email tem bordas suaves e o texto dentro do <code>.container</code> fica centralizado.</p>
+        <p><strong>Resumo:</strong> O <code>styles.css</code> transforma o HTML bruto em uma interface bonita, centralizada e funcional, com cores e espaçamentos consistentes.</p>
+
+        <h2>3. <code>script.js</code> - A Lógica da Página</h2>
+        <p>O <code>script.js</code> é o "cérebro" da aplicação. Ele captura o email, fala com o servidor e atualiza a tela com o resultado.</p>
+
+        <h3>Código Completo:</h3>
+        <pre><code>document.getElementById('email-form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Impede o envio padrão do formulário
+
+    // Captura o email inserido
+    const email = document.getElementById('email').value;
+    const message = document.getElementById('message');
+    const userNameDisplay = document.getElementById('user-name');
+
+    // Faz a requisição ao servidor usando a rota /login
+    fetch(`http://localhost:3000/login?email=${encodeURIComponent(email)}`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Erro: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            if (!data || data.length === 0) {
+                message.style.color = "red";
+                message.textContent = "Email não encontrado.";
+                userNameDisplay.textContent = "";
+            } else {
+                const user = data[0]; // Pega o primeiro resultado
+                message.style.color = "green";
+                message.textContent = "Usuário encontrado!";
+                userNameDisplay.textContent = `Nome: ${user.username}`;
+            }
+        })
+        .catch(error => {
+            console.log('Erro na requisição:', error);
+            message.style.color = "red";
+            message.textContent = "Erro ao conectar ao servidor.";
+            userNameDisplay.textContent = "";
+        });
+});</code></pre>
+
+        <h3>Explicação Detalhada:</h3>
+        <ul>
+            <li><strong><code>document.getElementById('email-form').addEventListener('submit', function(event) {...})</code>:</strong>
+                <ul>
+                    <li>Busca o formulário com ID <code>email-form</code> no HTML.</li>
+                    <li><code>addEventListener('submit', ...)</code>: "Ouve" o evento de envio do formulário (quando o botão "Buscar" é clicado).</li>
+                    <li>A função dentro dele roda toda vez que o evento acontece.</li>
+                </ul>
+            </li>
+            <li><strong><code>event.preventDefault()</code>:</strong>
+                <ul>
+                    <li>Impede o comportamento padrão do formulário, que é recarregar a página. Queremos controlar o envio com JS.</li>
+                </ul>
+            </li>
+            <li><strong>Capturando elementos:</strong>
+                <ul>
+                    <li><code>const email = document.getElementById('email').value</code>: Pega o texto digitado no campo com ID <code>email</code>.</li>
+                    <li><code>const message = document.getElementById('message')</code>: Pega o elemento <code><p id="message"></code> para mostrar mensagens.</li>
+                    <li><code>const userNameDisplay = document.getElementById('user-name')</code>: Pega o elemento <code><p id="user-name"></code> para o nome.</li>
+                    <li>Usamos <code>const</code> porque esses valores não mudam dentro dessa função.</li>
+                </ul>
+            </li>
+            <li><strong><code>fetch(`http://localhost:3000/login?email=${encodeURIComponent(email)}`)</code>:</strong>
+                <ul>
+                    <li>Inicia uma requisição GET ao servidor na rota <code>/login</code>.</li>
+                    <li><code>${encodeURIComponent(email)}</code>: Insere o email na URL, codificando caracteres especiais (ex.: "@" vira "%40") para evitar erros.</li>
+                    <li>Exemplo: Se o email for <code>teste@example.com</code>, a URL será <code>http://localhost:3000/login?email=teste%40example.com</code>.</li>
+                </ul>
+            </li>
+            <li><strong>Primeiro <code>.

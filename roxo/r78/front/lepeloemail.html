@@ -4,68 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Buscar Usuário por Email</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-        .container {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            max-width: 400px;
-            text-align: center;
-        }
-        h2 {
-            color: #333;
-            margin-bottom: 20px;
-        }
-        .form-group {
-            margin-bottom: 15px;
-        }
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            color: #555;
-        }
-        .form-group input {
-            width: 100%;
-            padding: 8px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
-        button {
-            width: 100%;
-            padding: 10px;
-            background-color: #28a745;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 16px;
-        }
-        button:hover {
-            background-color: #218838;
-        }
-        #message {
-            margin-top: 15px;
-            font-size: 14px;
-        }
-        #user-name {
-            margin-top: 15px;
-            font-size: 16px;
-            font-weight: bold;
-            color: #333;
-        }
-    </style>
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
     <div class="container">
@@ -81,42 +20,6 @@
         <p id="user-name"></p>
     </div>
 
-    <script>
-        document.getElementById('email-form').addEventListener('submit', function(event) {
-            event.preventDefault(); // Impede o envio padrão do formulário
-
-            // Captura o email inserido
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message');
-            const userNameDisplay = document.getElementById('user-name');
-
-            // Faz a requisição ao servidor usando a rota /login
-            fetch(`http://localhost:3000/login?email=${encodeURIComponent(email)}`)
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error(`Erro: ${response.status}`);
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    if (!data || data.length === 0) {
-                        message.style.color = "red";
-                        message.textContent = "Email não encontrado.";
-                        userNameDisplay.textContent = "";
-                    } else {
-                        const user = data[0]; // Pega o primeiro resultado
-                        message.style.color = "green";
-                        message.textContent = "Usuário encontrado!";
-                        userNameDisplay.textContent = `Nome: ${user.username}`;
-                    }
-                })
-                .catch(error => {
-                    console.log('Erro na requisição:', error);
-                    message.style.color = "red";
-                    message.textContent = "Erro ao conectar ao servidor.";
-                    userNameDisplay.textContent = "";
-                });
-        });
-    </script>
+    <script src="assets/js/script.js"></script>
 </body>
 </html>

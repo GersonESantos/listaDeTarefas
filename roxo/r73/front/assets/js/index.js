@@ -23,8 +23,8 @@ function getUserData(id) {
         } else {
             document.querySelector("#id").textContent = dados[0].id;
             document.querySelector("#username").textContent = dados[0].username;
+            document.querySelector("#email").textContent = dados[0].email;
             document.querySelector("#passwrd").textContent = dados[0].passwrd;
-            document.querySelector("#email").textContent = dados[0].email; // Novo campo
             document.querySelector("#created_at").textContent = new Date(dados[0].created_at).toLocaleString();
             document.querySelector("#updated_at").textContent = new Date(dados[0].updated_at).toLocaleString();
         }
@@ -50,7 +50,7 @@ function getUserTasks(id) {
         if (!tasks || tasks.length === 0) {
             tasksList.innerHTML = "<p>Nenhuma tarefa encontrada para este usuário.</p>";
         } else {
-            tasksList.innerHTML = "";
+            tasksList.innerHTML = ""; // Limpa o "Carregando..."
             tasks.forEach(task => {
                 const taskItem = document.createElement("div");
                 taskItem.classList.add("task-item");

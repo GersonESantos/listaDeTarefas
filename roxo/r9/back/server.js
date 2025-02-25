@@ -36,5 +36,5 @@ app.get("/user/:id", (req, res) => {
 
 
 app.listen(3000, () => {
-    console.log('Rodando app listening at http://localhost:3000');
+    console.log('🚀Rodando server.js roxo/r9 listening at http://localhost:3000');
   });

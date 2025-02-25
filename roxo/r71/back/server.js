@@ -10,6 +10,7 @@ const connection = mysql.createConnection({
 });
 
 const app = new express();
+
 app.use(cors());
 
 app.get("/", (req, res) => {
@@ -23,8 +24,7 @@ app.get("/", (req, res) => {
 
 // ----------------------------------------
 app.get("/user/:id", (req, res) => {
-    connection.query("SELECT * FROM users WHERE id = ?", [req.params.id], (err, results) => {
-    // connection.query("SELECT id, passwrd, username, created_at FROM users WHERE id = ?", [req.params.id], (err, results) => {    
+    connection.query("SELECT * FROM users WHERE id = ?", [req.params.id], (err, results) => {     
         if (err) {
             res.send('MySQL connection error.');
         }
@@ -32,10 +32,6 @@ app.get("/user/:id", (req, res) => {
     })
 });
 
-
-
-
-
 app.listen(3000, () => {
-    console.log('🚀Rodando app listening at http://localhost:3000');
+    console.log('🚀Rodando server.js roxo/r71 listening at http://localhost:3000');
   });

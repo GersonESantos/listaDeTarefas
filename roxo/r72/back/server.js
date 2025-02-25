@@ -1,7 +1,6 @@
 const express = require('express');
 const mysql = require('mysql2');
 const cors = require('cors');
-
 // opcoes de conexao com o MySQL
 const connection = mysql.createConnection({
     host: 'localhost',
@@ -9,12 +8,11 @@ const connection = mysql.createConnection({
     password: 'Gabibi89*',
     database: 'bd_tasks'
 });
+
 const app = new express();
 
 app.use(cors());
 
-// rotas
-// ----------------------------------------
 app.get("/", (req, res) => {
     connection.query("SELECT COUNT(*) users FROM users", (err, results) => {
         if (err) {
@@ -43,7 +41,6 @@ app.get("/user/:id/tasks/", (req, res) => {
         res.json(results);
     })
 });
-
 app.listen(3000, () => {
-    console.log('🚀Rodando app listening at http://localhost:3000');
+    console.log('🚀Rodando server.js roxo/r72 listening at http://localhost:3000');
   });

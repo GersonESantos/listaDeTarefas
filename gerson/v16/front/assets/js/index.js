@@ -47,6 +47,7 @@ function get_user_tasks(id){
         } else {
             
             document.querySelector("#tasks_container").innerHTML = null;
+            
             let colors = [
                 {
                     status: 'new',
@@ -102,4 +103,11 @@ function get_user_tasks(id){
             document.querySelector("#total_tasks > div > h4 > span").textContent = tarefas.length;
         }
     })
+}
+function edit_task(id_task){
+    console.log(id_task);
+}
+
+function delete_task(id_task){
+    console.log(id_task);
 }

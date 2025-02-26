@@ -1,25 +1,42 @@
 <!DOCTYPE html>
+<!-- Declaração do tipo de documento como HTML5 -->
 <html lang="pt-br">
+<!-- Define a linguagem do documento como português brasileiro -->
 <head>
     <meta charset="UTF-8">
+    <!-- Define a codificação de caracteres como UTF-8, permitindo suporte a caracteres especiais como acentos -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Configura a responsividade para dispositivos móveis, ajustando a largura ao tamanho da tela -->
     <title>Buscar Usuário por Email</title>
+    <!-- Define o título da página exibido na aba do navegador -->
     <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Vincula um arquivo CSS externo para estilizar a página, localizado em assets/css/style.css -->
 </head>
 <body>
+    <!-- Início do conteúdo visível da página -->
     <div class="container">
+        <!-- Div que serve como contêiner principal para centralizar e organizar o conteúdo -->
         <h2>Buscar Usuário</h2>
+        <!-- Título de nível 2 que indica o propósito da página -->
         <form id="email-form">
+            <!-- Formulário HTML com ID "email-form" para capturar o email e processar a busca -->
             <div class="form-group">
+                <!-- Div para agrupar o rótulo e o campo de entrada, útil para estilização -->
                 <label for="email">Email:</label>
+                <!-- Rótulo associado ao campo de entrada com ID "email", exibindo "Email:" -->
                 <input type="email" id="email" name="email" required>
+                <!-- Campo de entrada do tipo email, com ID e name "email", exigido (required) antes do envio -->
             </div>
             <button type="submit">Buscar</button>
+            <!-- Botão de envio do formulário com texto "Buscar" -->
         </form>
         <p id="message"></p>
+        <!-- Parágrafo com ID "message" para exibir mensagens de sucesso ou erro -->
         <p id="user-name"></p>
+        <!-- Parágrafo com ID "user-name" para exibir o nome do usuário encontrado -->
     </div>
 
     <script src="assets/js/script.js"></script>
+    <!-- Vincula o arquivo JavaScript externo localizado em assets/js/script.js, que controla a lógica da página -->
 </body>
 </html>

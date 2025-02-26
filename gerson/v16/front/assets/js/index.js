@@ -76,8 +76,7 @@ function get_user_tasks(id){
                                 <h5 class="me-3 text-info"><i class="fa-solid fa-circle-chevron-right"></i></h5>
                                 <h5>${tarefa.task_description}</h5>
                             </div>
-                        </div>
-                    
+                        </div>        
                         <div class="col-2">
                             <select id="task_status_${tarefa.id}" class="form-select p-2 ${color.select_bg_color}" >
                                 <option value="new"${tarefa.status == 'new' ? 'select' : ''}>new</option>

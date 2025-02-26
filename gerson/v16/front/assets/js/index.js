@@ -79,15 +79,15 @@ function get_user_tasks(id){
                             </div>
                         </div>        
                         <div class="col-2">
-                            <select id="task_status_${tarefa.id}" class="form-select p-2 ${color.select_bg_color}" >
-                                <option value="new"${tarefa.status == 'new' ? 'select' : ''}>new</option>
+                            <select id="task_status_${tarefa.id}" onchange="change_task_status(${tarefa.id})" class="form-select p-2 ${color.select_bg_color}">
+                                <option value="new" ${tarefa.status == 'new' ? 'selected' : ''}>new</option>
                                 <option value="em progresso" ${tarefa.status == 'em progresso' ? 'selected' : ''}>em progresso</option>
-                                <option value="pendente"     ${tarefa.status == 'pendente' ? 'selected' : ''}>pendente</option>
-                                <option value="concluído"    ${tarefa.status == 'concluído' ? 'selected' : ''}>concluído</option>
+                                <option value="pendente"     ${tarefa.status == 'pendente' ? 'selected' : ''}>Pendente</option>
+                                <option value="concluído"    ${tarefa.status == 'concluído' ? 'selected' : ''}>Concluído</option>
                             </select>
                         </div>
-                        <div class="col-1 text-end"><span class="edit_link" onClik="edit_task(${tarefa.id})"><i class="fa-regular fa-pen-to-square me-2"></i>Edit</span></div>
-                        <div class="col-1 text-end "><span class="delete_link" onClik="delete_task(${tarefa.id})"><i class="fa-regular fa-trash-can me-2"></i>Delete</span></div>    
+                        <div class="col-1 text-end"><span class="edit_link" onclick="edit_task(${tarefa.id})"><i class="fa-regular fa-pen-to-square me-2"></i>Edit</span></div>
+                        <div class="col-1 text-end"><span class="delete_link" onclick="delete_task(${tarefa.id})"><i class="fa-regular fa-trash-can me-2"></i>Delete</span></div>    
                        </div>
                 </div>`;
 
@@ -110,4 +110,11 @@ function edit_task(id_task){
 
 function delete_task(id_task){
     console.log(id_task);
+}
+function change_task_status(id_task){
+    console.log(id_task);
+    
+    let value = document.querySelector("#task_status_" + id_task).value;
+    
+    console.log(value);
 }

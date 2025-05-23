@@ -1,7 +1,7 @@
 const express = require('express');
 const mysql = require('mysql2');
 const cors = require('cors');
-
+//completo
 const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
@@ -43,10 +43,10 @@ app.get("/user/:id/tasks/", (req, res) => {
 
 // Rota de login ajustada para usar 'passwd'
 app.get("/login", (req, res) => {
-    const { email, password } = req.query; // 'password' vem do front-end
+    const { email, passwrd } = req.query; // 'password' vem do front-end
     connection.query(
         "SELECT * FROM users WHERE email = ? AND passwrd = ?", // Mudado de 'password' para 'passwd'
-        [email, password],
+        [email, passwrd],
         (err, results) => {
             if (err) {
                 res.status(500).send('MySQL connection error.');

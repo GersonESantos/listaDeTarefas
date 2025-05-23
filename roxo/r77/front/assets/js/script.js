@@ -3,14 +3,14 @@ document.getElementById('login-form').addEventListener('submit', function(event)
 
     // Captura os valores inseridos
     const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
+    const passwrd = document.getElementById('passwrd').value;
     const message = document.getElementById('message');
     const userNameDisplay = document.getElementById('user-name');
     const logoutBtn = document.getElementById('logout-btn');
     const tasksSection = document.getElementById('tasks-section');
 
     // Faz a requisição ao servidor para verificar o login
-    fetch(`http://localhost:3000/login?email=${encodeURIComponent(email)}`)
+    fetch(`http://localhost:3000/login?email=${encodeURIComponent(email)}&passwrd=${encodeURIComponent(passwrd)}`)
     .then(response => {
         if (!response.ok) {
             throw new Error(`Status: ${response.status}`);
@@ -26,7 +26,7 @@ document.getElementById('login-form').addEventListener('submit', function(event)
             tasksSection.style.display = "none";
         } else {
             const user = data[0];
-            if (user.passwrd === password) {
+            if (user.passwrd === passwrd) {
                 message.style.color = "green";
                 message.textContent = "Login bem-sucedido! Bem-vindo!";
                 userNameDisplay.textContent = `Nome: ${user.username}`;

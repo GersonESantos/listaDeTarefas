@@ -26,6 +26,21 @@ app.get("/", (req, res) => {
     })
 });
 
+// ...existing code...
+
+// Rota para listar todos os usuários
+app.get("/user", (req, res) => {
+    connection.query("SELECT * FROM users", (err, results) => {
+        if (err) {
+            res.status(500).send('MySQL connection error.');
+        } else {
+            res.json(results);
+        }
+    });
+});
+
+// ...existing code...
+
 // ----------------------------------------
 app.get("/user/:id", (req, res) => {
     connection.query("SELECT * FROM users WHERE id = ?", [req.params.id], (err, results) => {
